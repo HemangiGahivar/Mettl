@@ -338,3 +338,76 @@ class FindPasswordStableUnstable {
 }
 
 
+import java.util.Arrays;
+
+public class SmallLargeDigit
+{
+public static void main(String[] args)
+{
+int input1=25687;
+int input2=98652;
+int input3=56124;
+
+String str1=String.valueOf(input1);
+String str2=String.valueOf(input2);
+String str3=String.valueOf(input3);
+
+String output1=getSort(str1);
+String output2=getSort(str2);
+String output3=getSort(str3);
+
+StringBuilder sb1= new StringBuilder(output1);
+sb1.reverse();
+StringBuilder sb2= new StringBuilder(output2);
+sb2.reverse();
+StringBuilder sb3= new StringBuilder(output3);
+sb3.reverse();
+
+System.out.println(sb1+" "+sb2 + " "+sb3);
+
+int num1=Integer.parseInt(getLast3Char(sb1));
+int num2=Integer.parseInt(getLast3Char(sb2));
+int num3=Integer.parseInt(getLast3Char(sb3));
+
+int result=num1+num2+num3;
+System.out.println("Last3har:"+result);
+
+int numf1=Integer.parseInt(getFirst3Char(output1));
+int numf2=Integer.parseInt(getFirst3Char(output2));
+int numf3=Integer.parseInt(getFirst3Char(output3));
+
+int firstresult=numf1+numf2+numf3;
+System.out.println("First3har:"+firstresult);
+
+}
+
+private static String getFirst3Char(String sb1) 
+{
+	String firstchar="";
+	if(sb1.length()>3)
+	{
+		firstchar=sb1.substring(0,3);
+	}
+	return new String(firstchar).toString();
+}
+
+private static String getLast3Char(StringBuilder sb1)
+{
+	String lastchar="";
+	if(sb1.length()>3)
+	{
+		lastchar=sb1.substring(0,3);
+	}
+	return new String(lastchar);
+}
+
+private static String getSort(String str) 
+{
+      char chars[]=str.toCharArray();
+      Arrays.sort(chars);
+      return new String(chars);
+}
+}
+
+
+
