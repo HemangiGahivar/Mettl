@@ -1,6 +1,5 @@
 import java.util.*;
 import java.math.*;
-
 public class test {
 	public static void main(String[] args) {
 		
@@ -69,3 +68,127 @@ public class test {
 	}
 	
 }
+
+public class PasswordGen
+{
+public static void main(String[] args)
+{
+String str1="WIPRO";      //middleadd
+String str2="TECHNOLOGIES";
+
+String spart1="",spart2="",spart3="";
+String stpart1="",stpart2="",stpart3="";
+
+int len1=str1.length();
+int len2=str2.length();
+
+int i=len1;
+int j=len2;
+
+if(i%3==0)
+{
+	spart1=str1.substring(0,i/3);
+	spart2=str1.substring(i/3,2*i/3);
+	spart3=str1.substring(2*i/3);
+}
+else if(i%3==1)
+{
+	spart1=str1.substring(0,i/3-1);
+	spart2=str1.substring(i/3,2*i/3);
+	spart3=str1.substring(2*i/3);
+}
+else
+	{
+		spart1=str1.substring(0,i/3);
+		spart2=str1.substring(i/3,2*i/3);
+		spart3=str1.substring(2*i/3+1);
+	}
+
+if(j%3==0)
+{
+	stpart1=str2.substring(0,j/3);
+	stpart2=str2.substring(j/3,2*j/3);
+	stpart3=str2.substring(2*j/3);
+}
+else if(j%3==1)
+{
+	stpart1=str2.substring(0,j/3-1);
+	stpart2=str2.substring(j/3,2*j/3);
+	stpart3=str2.substring(2*j/3);
+}
+else
+	{
+		stpart1=str2.substring(0,j/3);
+		stpart2=str2.substring(j/3,2*j/3);
+		stpart3=str2.substring(2*j/3+1);
+	}
+
+String Password = stpart1+spart1+spart3+stpart3;
+System.out.println(Password);
+
+}
+}
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class TokenArray
+{
+	
+public static void main(String[] args)
+{
+ //int input1=11;
+ int input1=7;
+// String []input2 = {"Priya","Rajesh","Abdul","Rahul","Preeti","Sanjay","Nidhi","Varun","Varsha","Basil","Asif"};	
+// int []input3= {44,99,46,39,102,45,521,65,4,47,741};
+String [] input2= {"aa","bb","cc","dd","ee","gg","hh"};
+int []input3= {9,89,5,6,65,4,7};
+
+ Map<Integer,String>  map= new HashMap<Integer,String>();
+ for(int i=0;i<input3.length;i++)
+ {
+	 map.put(input3[i],input2[i]);
+ }
+    Arrays.sort(input3);
+  
+   boolean isFound=false;
+   
+   int track= -1;
+   try
+   {
+	   for(int j=0;j<input3.length;j++)
+	   {
+		   if(input3[j+1]-input3[j]!=1)
+		   {
+			   continue;
+		   }
+		   if(input3[j+3]-input3[j+2] ==1 && input3[j+2]- input3[j+1]==1 && input3[j+1]-input3[j]==1)
+		   {
+			   isFound=true;
+			   track=j;
+			   break;
+		   }
+	   }
+   }catch (Exception e) {}
+   if(isFound)
+   {
+	   StringBuilder sb=new StringBuilder();
+	   sb.append(map.get(input3[track]));
+	   sb.append(":");
+	   sb.append(map.get(input3[track+1]));
+	   sb.append(":"); 
+	   sb.append(map.get(input3[track+2]));
+	   sb.append(":");
+	   sb.append(map.get(input3[track+3]));
+	   
+	   System.out.println(sb.toString());
+	 //  return sb.toString();
+   }else System.out.println("NONE");
+	 //  return "NONE";
+}
+}
+
+
+
+
