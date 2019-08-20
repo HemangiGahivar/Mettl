@@ -188,7 +188,72 @@ int []input3= {9,89,5,6,65,4,7};
 	 //  return "NONE";
 }
 }
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+public class PersonArray
+{
+	public static void main(String[] args) {
+			
+	//int input1=11;
+	int input1=7;
+	//String []input3 = {"Priya","Rajesh","Abdul","Rahul","Preeti","Sanjay","Nidhi","Varun","Varsha","Basil","Asif"};	
+	//int []input2= {44,99,46,39,102,45,521,65,4,47,741};
+	String [] input3= {"aa","bb","cc","dd","ee","gg","hh"};
+	int []input2= {9,89,5,6,65,4,7};
+		
+	List<Integer> l1 =new ArrayList<Integer>();
+		for(int i:input2)
+		{
+			l1.add(i);
+		}
+		System.out.println(l1);
+		
+		Arrays.sort(input2);
+		System.out.println(Arrays.toString(input2));
+		int count=0;
+		List<Integer> l =new ArrayList<Integer>();
+		for(int i = 0;i<input1-1;i++)
+		{
+			int c = check(input2[i],input2[i+1]);
+			if(c==1)
+				{System.out.println(input2[i]);
+				l.add(input2[i]);
+				l.add(input2[i+1]);
+				count=count+2;
+				i++;
+				System.out.println(count);
+				}
+			else
+			{count=0;l.clear();}
+			
+			if(count==4)
+			{  System.out.println(l);
+		 		break;
+		 	}
+				
+		}
+		String one = input3[l1.indexOf(l.get(0))];
+		String two = input3[l1.indexOf(l.get(1))];
+		String three=input3[l1.indexOf(l.get(2))];
+		String four=input3[l1.indexOf(l.get(3))];
+		String finals=one+":"+two+":"+three+":"+four;
+		System.out.println(finals);
+		String rev = four+":"+three+":"+two+":"+one;
+		System.out.println(rev);
+		}
+
+	public static int check(int a,int b)
+	{
+		if(b==a+1)
+			return 1;
+		else
+			return 0;
+	}
+	} 
+	
+	
 
 class GenerateSeriesAndFindNthElement {
 
